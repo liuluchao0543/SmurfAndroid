@@ -3,6 +3,7 @@ package com.smurf.app;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -30,7 +31,7 @@ public class MainActivity extends BaseActivity {
             if (time == 0) {
                 handler.removeMessages(MSG_DELAY_TIME_WHAT);
                 delayTime.setVisibility(View.GONE);
-
+                startLoginActivity();
             } else {
                 handler.sendEmptyMessageDelayed(MSG_DELAY_TIME_WHAT, 1000);
             }
@@ -52,6 +53,7 @@ public class MainActivity extends BaseActivity {
     }
 
     private void startLoginActivity(){
-
+        Intent intent = new Intent(this,LoginActivity.class);
+        startActivity(intent);
     }
 }
